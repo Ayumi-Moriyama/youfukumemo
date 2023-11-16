@@ -26,12 +26,12 @@ const tops = [
 
 for (let i = 0; i < tops.length; i++) {
     const { name, img } = tops[i];
-    const content = `<div><img id=${tops[i].name} src="images/${img}"alt=""><p>${name}</p></div>`;
+    const content = `<div><img id=${tops[i].name} class="topsImg" src="images/${img}"alt=""><p>${name}</p></div>`;
     tops_ichiran.insertAdjacentHTML('beforeend', content);
 
     console.log(tops[i].name);
 }
-$('img').on('click', function (e) {
+$('.topsImg').on('click', function (e) {
     $('#topsChoice').text(e.target.id);
     console.log(e.target.id);
 });
@@ -65,10 +65,10 @@ const bottoms = [
 
 for (let i = 0; i < bottoms.length; i++) {
     const { name, img } = bottoms[i];
-    const content_b = `<div><img id=${bottoms[i].name} src="images/${img}" alt=""><p>${name}</p></div>`;
+    const content_b = `<div><img id=${bottoms[i].name} class="bottomsImg" src="images/${img}" alt=""><p>${name}</p></div>`;
     bottoms_ichiran.insertAdjacentHTML('beforeend', content_b);
 }
-$('img').on('click', function (e) {
+$('.bottomsImg').on('click', function (e) {
     $('#bottomsChoice').text(e.target.id);
     console.log(e.target.id);
 });
@@ -97,16 +97,14 @@ const outer = [
 
 for (let i = 0; i < outer.length; i++) {
     const { name, img } = outer[i];
-    const content_o = `<div><img id=${outer[i].name} src="images/${img} "alt=""><p>${name}</p></div>`;
+    const content_o = `<div><img id=${outer[i].name} class="outerImg" src="images/${img} "alt=""><p>${name}</p></div>`;
     outer_ichiran.insertAdjacentHTML('beforeend', content_o);
 }
-$('img').on('click', function (e) {
+$('.outerImg').on('click', function (e) {
     $('#outerChoice').text(e.target.id);
     console.log(e.target.id);
 });
 console.log(outer_ichiran);
-
-// $('#accessories').on('click', function () {
 
 const accessories = [
     {
@@ -121,11 +119,21 @@ const accessories = [
 
 for (let i = 0; i < accessories.length; i++) {
     const { name, img } = accessories[i];
-    const content_a = `<div><img id=${accessories[i].name} src="images/${img}" alt=""><p>${name}</p></div>`;
+    const content_a = `<div><img id=${accessories[i].name} class="accessoriesImg" src="images/${img}" alt=""><p>${name}</p></div>`;
     accessories_ichiran.insertAdjacentHTML('beforeend', content_a);
 }
-$('img').on('click', function (e) {
+$('.accessoriesImg').on('click', function (e) {
     $('#accessoriesChoice').text(e.target.id);
     console.log(e.target.id);
 });
 console.log(accessories_ichiran);
+
+// const data = {
+//     tops: "",
+//     bottoms: "",
+//     outer:"",
+//     accessories"",
+// };
+
+// const jsonData = JSON.stringify(data);
+// localStorage.setItem("memo", jsonData);
