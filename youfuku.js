@@ -24,6 +24,7 @@ const tops = [
     },
 ];
 
+//トップス一覧を配列から表示する 
 for (let i = 0; i < tops.length; i++) {
     const { name, img } = tops[i];
     const content = `<div><img id=${tops[i].name} class="topsImg" src="images/${img}"alt=""><p>${name}</p></div>`;
@@ -31,11 +32,12 @@ for (let i = 0; i < tops.length; i++) {
 
     console.log(tops[i].name);
 }
+
+// 画像をクリックするとトップス選択画面に名前が入る
 $('.topsImg').on('click', function (e) {
     $('#topsChoice').text(e.target.id);
     console.log(e.target.id);
 });
-
 
 // let topsHtml = [];
 
@@ -46,10 +48,6 @@ $('.topsImg').on('click', function (e) {
 // $('#tops_ichiran').html(topsHtml);
 // console.log(topsHtml);
 
-
-
-
-// $('#bottoms').on('click', function () {
 const bottoms = [
     {
         name: 'ツイードタックワイドパンツ',
@@ -68,12 +66,13 @@ for (let i = 0; i < bottoms.length; i++) {
     const content_b = `<div><img id=${bottoms[i].name} class="bottomsImg" src="images/${img}" alt=""><p>${name}</p></div>`;
     bottoms_ichiran.insertAdjacentHTML('beforeend', content_b);
 }
+
 $('.bottomsImg').on('click', function (e) {
     $('#bottomsChoice').text(e.target.id);
     console.log(e.target.id);
 });
 
-// $('#outer').on('click', function () {
+
 const outer = [
     {
         name: 'ダブルフェイスラップコート',
@@ -100,11 +99,14 @@ for (let i = 0; i < outer.length; i++) {
     const content_o = `<div><img id=${outer[i].name} class="outerImg" src="images/${img} "alt=""><p>${name}</p></div>`;
     outer_ichiran.insertAdjacentHTML('beforeend', content_o);
 }
+
 $('.outerImg').on('click', function (e) {
     $('#outerChoice').text(e.target.id);
     console.log(e.target.id);
 });
-console.log(outer_ichiran);
+
+// console.log(outer_ichiran);
+
 
 const accessories = [
     {
@@ -122,18 +124,42 @@ for (let i = 0; i < accessories.length; i++) {
     const content_a = `<div><img id=${accessories[i].name} class="accessoriesImg" src="images/${img}" alt=""><p>${name}</p></div>`;
     accessories_ichiran.insertAdjacentHTML('beforeend', content_a);
 }
+
 $('.accessoriesImg').on('click', function (e) {
     $('#accessoriesChoice').text(e.target.id);
     console.log(e.target.id);
 });
-console.log(accessories_ichiran);
 
-// const data = {
-//     tops: "",
-//     bottoms: "",
-//     outer:"",
-//     accessories"",
-// };
+// console.log(accessories_ichiran);
 
-// const jsonData = JSON.stringify(data);
-// localStorage.setItem("memo", jsonData);
+
+$('#save').on('click', function () {
+    const data = {
+        tops: $('#topsText').val(),
+        bottoms: $('#bottomsText').val(),
+        outer: $('#outerText').val(),
+        accessories: $('#accessoriesText').val(),
+    };
+    console.log(data);
+    const jsonData = JSON.stringify(data);
+    localStorage.setItem("memo", jsonData);
+});
+
+$('#clear').on('click', function () {
+    localStorage.removeItem("memo");
+    $('#topsText').val();
+    $('#bottomsText').val();
+    $('#outerText').val();
+    $('#accessoriesText').val();
+});
+
+if (localStorage.getItem("memo")) {
+    const json = localStorage.getItem("memo");
+    console.log(json);
+    const data = JSON.parse(json);
+    console.log(data);
+    $('#topsText').val(data.tops);
+    $('#bottomsText').val(data.bottoms);
+    $('#outerText').val(data.outer);
+    $('#accessoriesText').val(data.accessories);
+}

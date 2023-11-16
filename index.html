@@ -21,23 +21,33 @@
       <li id="outer">アウターを表示</li>
       <li id="accessories">小物を表示</li>
     </ul> -->
-
     <section>コーディネート
-      <p id="topsChoice">トップスを選択</p>
-      <p id="bottomsChoice">ボトムスを選択</p>
-      <p id="outerChoice">アウターを選択</p>
-      <p id="accessoriesChoice">小物を選択</p>
-      <button>登録</button>
+      <div class="choice">
+        <p id="topsChoice">トップスを選択</p>
+        <p id="bottomsChoice">ボトムスを選択</p>
+        <p id="outerChoice">アウターを選択</p>
+        <p id="accessoriesChoice">小物を選択</p>
+      </div>
+      <div class="form">
+      <input type="text" id="topsText">
+      <input type="text" id="bottomsText">
+      <input type="text" id="outerText">
+      <input type="text" id="accessoriesText">
+      </div>
+      <button id="save">登録</button>
+      <button id="clear">削除</button>
     </section>
 
-    <div id="tops_ichiran"></div>
-    <div id="bottoms_ichiran"></div>
-    <div id="outer_ichiran"></div>
-    <div id="accessories_ichiran"></div>
+    <section class="ichiran">
+      <div id="tops_ichiran"></div>
+      <div id="bottoms_ichiran"></div>
+      <div id="outer_ichiran"></div>
+      <div id="accessories_ichiran"></div>
+    </section>
 
   </main>
 
-  <footer>洋服選び</footer>
+  <!-- <footer>洋服選び</footer> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
 
